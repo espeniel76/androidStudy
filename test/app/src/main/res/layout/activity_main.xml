@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context=".MainActivity">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="#0073b1"
+		android:gravity="center_vertical"
+		android:orientation="horizontal">
+
+		<ImageView
+			android:layout_width="50dp"
+			android:layout_height="match_parent"
+			android:scaleType="center"
+			android:src="@drawable/ic_baseline_arrow_white_24" />
+
+		<TextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:gravity="center"
+			android:text="Alita Battle Angel 2"
+			android:textColor="@android:color/white" />
+
+		<ImageView
+			android:layout_width="50dp"
+			android:layout_height="match_parent"
+			android:scaleType="center"
+			android:src="@drawable/ic_baseline_bookmark_border_white_24" />
+
+		<ImageView
+			android:layout_width="50dp"
+			android:layout_height="match_parent"
+			android:scaleType="center"
+			android:src="@drawable/ic_baseline_more_horiz_white_24" />
+
+	</LinearLayout>
+
+	<ImageView
+		android:layout_width="match_parent"
+		android:layout_height="200dp"
+		android:scaleType="centerCrop"
+		android:src="@drawable/alita_battle_angel" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingHorizontal="16dp"
+		android:paddingVertical="20dp">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="美보다 9일 먼저 전세계 최초개봉 '알리타: 배틀엔젤' 2일 연속 검색순위 1위 흥행예고"
+			android:textColor="@android:color/black"
+			android:textSize="20sp"
+			android:textStyle="bold" />
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="발행한 날: 2020년 4월 18일"
+			android:textColor="@android:color/darker_gray"
+			android:textSize="14sp" />
+
+	</LinearLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginEnd="16dp"
+		android:background="@android:color/darker_gray" />
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:paddingHorizontal="16dp"
+		android:paddingVertical="20dp"
+		android:text="[스페셜타임스 최선은 기자] 네티즌들과 DC 영화 '아쿠아맨'을 극찬한 미국 영화 전문 매체 편집장과 '씨네21' 평론가 출신 국내 최대 영화 커뮤니티 편집장이 한목소리로 극찬해 전 세계가 '알리타'로 하나 되는 유례가 드문 초유의 사태가 벌어진 가운데, 미국보다 9일 먼저 전 세계 최초 개봉하는 '알리타: 배틀엔젤'이 2일 연속 개봉예정영화 일간검색어 1위를 기록해 대한민국에 이어 전 세계로 퍼져나갈 2019년 설날 개봉영화 '알리타: 배틀엔젤'의 압도적 흥행 돌풍과 예매 폭주를 예고했다." />
+</LinearLayout>
