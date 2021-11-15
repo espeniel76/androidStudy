@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<!--	RatingBar-->
+	<RatingBar
+		android:id="@+id/ratingbar"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:numStars="5"
+		android:stepSize="1.0" />
+
+	<!--	Toggle Sample-->
+	<ToggleButton
+		android:id="@+id/togglebutton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="onToggleClicked"
+		android:textOff="Vibrate off"
+		android:textOn="Vibrate on" />
+
+	<!--	Radio Sample-->
+	<RadioGroup
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<RadioButton
+			android:id="@+id/radio_red"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="onRadioButtonClicked"
+			android:text="Red" />
+
+		<RadioButton
+			android:id="@+id/radio_blue"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onClick="onRadioButtonClicked"
+			android:text="Blue" />
+	</RadioGroup>
+
+	<!--	CheckBox Sample-->
+	<CheckBox
+		android:id="@+id/checkbox_meat"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="onCheckBoxClicked"
+		android:text="고기" />
+
+	<CheckBox
+		android:id="@+id/checkbox_cheese"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:onClick="onCheckBoxClicked"
+		android:text="치즈" />
+</LinearLayout>
