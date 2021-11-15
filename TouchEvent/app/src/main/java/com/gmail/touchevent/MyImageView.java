@@ -1,21 +1,20 @@
 package com.gmail.touchevent;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 
 public class MyImageView extends View {
 
-	private Drawable image;
-	private ScaleGestureDetector gestureDetector;
+	private final Drawable image;
+	private final ScaleGestureDetector gestureDetector;
 	private float scale = 1.0f;
 
+	@SuppressLint("UseCompatLoadingForDrawables")
 	public MyImageView(Context context) {
 		super(context);
 		image = context.getResources().getDrawable(R.drawable.lion);
@@ -33,6 +32,7 @@ public class MyImageView extends View {
 		canvas.restore();
 	}
 
+	@SuppressLint("ClickableViewAccessibility")
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		gestureDetector.onTouchEvent(event);
