@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 //		setContentView(new MyView(this));
-//		setContentView(new SingleTouchView(this, null));
+		setContentView(new SingleTouchView(this, null));
 //		setContentView(new MultiTouchView(this, null));
-		setContentView(new MyImageView(this));
+//		setContentView(new MyImageView(this));
 	}
 }

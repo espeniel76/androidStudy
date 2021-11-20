@@ -38,6 +38,9 @@ public class MyImageView extends View {
 		gestureDetector.onTouchEvent(event);
 		invalidate();
 		return true;
+
+
+
 	}
 
 	private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
