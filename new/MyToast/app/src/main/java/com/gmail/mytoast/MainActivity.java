@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
 	@Override
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
+		// 팝업형식의 토스트 메시지
 		AppCompatButton button2 = (AppCompatButton) findViewById(R.id.button2);
 		button2.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -46,6 +49,16 @@ public class MainActivity extends AppCompatActivity {
 				toast.setView(layout);
 
 				toast.show();
+			}
+		});
+
+		// 아래쪽에서 올라오는 스낵바
+		AppCompatButton button3 = (AppCompatButton) findViewById(R.id.button3);
+		button2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+//				Snackbar.make(v, "스낵바입니다.", Snackbar.LENGTH_LONG).show();
+				Snackbar.make(v, "스낵바 입니다.", Snackbar.LENGTH_LONG).show();
 			}
 		});
 	}
