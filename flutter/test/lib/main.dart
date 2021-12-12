@@ -1,68 +1,216 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: '나의 플러터 테스트 앱'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage());
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
-
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  var _index = 0;
+  var _pages = [
+    Page1(),
+    Page2(),
+    Page3(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              '한글 지원은 어떨까?',
+        title: Text(
+          '복잡한 UI',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.add,
+              color: Colors.black,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            onPressed: () {},
+          )
+        ],
+      ),
+      body: _pages[_index],
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            _index = index;
+          });
+        },
+        currentIndex: _index,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            label: '홈',
+            icon: Icon(Icons.home),
+          ),
+          BottomNavigationBarItem(
+            label: '이용서비스',
+            icon: Icon(Icons.assignment),
+          ),
+          BottomNavigationBarItem(
+            label: '내 정보',
+            icon: Icon(Icons.account_circle),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Page1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        _buildTop(),
+        _buildMiddle(),
+        _buildBottom(),
+      ],
+    );
+  }
+
+  Widget _buildTop() {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 20, bottom: 20),
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.local_taxi,
+                    size: 40,
+                  ),
+                  Text('택시'),
+                ],
+              ),
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.local_taxi,
+                  size: 40,
+                ),
+                Text('블랙'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.local_taxi,
+                  size: 40,
+                ),
+                Text('바이크'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.local_taxi,
+                  size: 40,
+                ),
+                Text('대리'),
+              ],
             ),
           ],
         ),
+        SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.local_taxi,
+                  size: 40,
+                ),
+                Text('택시'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.local_taxi,
+                  size: 40,
+                ),
+                Text('블랙'),
+              ],
+            ),
+            Column(
+              children: <Widget>[
+                Icon(
+                  Icons.local_taxi,
+                  size: 40,
+                ),
+                Text('바이크'),
+              ],
+            ),
+            Opacity(
+              opacity: 0.0,
+              child: Column(
+                children: <Widget>[
+                  Icon(
+                    Icons.local_taxi,
+                    size: 40,
+                  ),
+                  Text('대리'),
+                ],
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildMiddle() {
+    return Text('Middle');
+  }
+
+  Widget _buildBottom() {
+    return Text('Bottom');
+  }
+}
+
+class Page2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+        child: Text(
+      '이용서비스',
+      style: TextStyle(fontSize: 40),
+    ));
+  }
+}
+
+class Page3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        '내 정보',
+        style: TextStyle(fontSize: 40),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
