@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 void main() => runApp(MyApp());
 
@@ -18,12 +19,14 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   var _index = 0;
   var _pages = [
     Page1(),
     Page2(),
     Page3(),
+    Page4(),
   ];
 
   @override
@@ -65,6 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             label: '내 정보',
+            icon: Icon(Icons.account_circle),
+          ),
+          BottomNavigationBarItem(
+            label: '내 안녕',
             icon: Icon(Icons.account_circle),
           ),
         ],
@@ -184,7 +191,23 @@ class Page1 extends StatelessWidget {
   }
 
   Widget _buildMiddle() {
-    return Text('Middle');
+    return CarouselSlider(
+      options: CarouselOptions(height: 200.0),
+      items: [1, 2, 3, 4, 5].map((i) {
+        return Builder(
+          builder: (BuildContext context) {
+            return Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                decoration: BoxDecoration(color: Colors.amber),
+                child: Text(
+                  'text $i',
+                  style: TextStyle(fontSize: 16.0),
+                ));
+          },
+        );
+      }).toList(),
+    );
   }
 
   Widget _buildBottom() {
@@ -209,6 +232,18 @@ class Page3 extends StatelessWidget {
     return Center(
       child: Text(
         '내 정보',
+        style: TextStyle(fontSize: 40),
+      ),
+    );
+  }
+}
+
+class Page4 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text(
+        '내 사양',
         style: TextStyle(fontSize: 40),
       ),
     );
