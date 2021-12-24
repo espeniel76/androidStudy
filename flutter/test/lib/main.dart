@@ -3,7 +3,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends
+{
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

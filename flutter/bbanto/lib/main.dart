@@ -1,54 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:speech_to_text/speech_to_text.dart' as stt;
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'BBANTO',
-      home: Grade(),
-    );
+      return MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+              primarySwatch: Colors.blue,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: SpeechScreen();
+      );
   }
 }
 
-class Grade extends StatelessWidget {
+class SpeechScreen extends StatefulWidget {
+  @override
+  _SpeechScreenState createState() => _SpeechScreenState();
+}
+
+class _SpeechScreenState extends State<SpeechScreen> {
+    stt.SpeechToText _speech;
+    bool _isListening = false;
+    String _text = 'Press the button and start speaking';
+    double _confidence = 1.0;
+
+    @override
+    void initState() {
+        super.initState();
+        _speech = stt.SpeechToText();
+    }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[800],
-      appBar: AppBar(
-        title: Text('BBANTO'),
-        backgroundColor: Colors.amber[700],
-        centerTitle: true,
-        elevation: 0.0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30.0, 40.0, 0.0, 0.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              'NAME',
-              style: TextStyle(
-                color: Colors.white,
-                letterSpacing: 2.0,
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'BBANTO',
-              style: TextStyle(
-                  color: Colors.white,
-                  letterSpacing: 2.0,
-                  fontSize: 28.0,
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
+        appBar: AppBar(
+            title: Text('Confidence: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
         ),
-      ),
     );
   }
 }
